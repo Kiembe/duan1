@@ -1,0 +1,12 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Public Sans', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+a{
+    color: inherit;
+}

@@ -1,0 +1,336 @@
+.wrapper {
+    display: flex;
+    position: relative;
+}
+
+aside {
+    position: fixed;
+    height: 100vh;
+    width: 18%;
+    padding: 10px 0px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+
+aside .logo h1{
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    margin: 20px;
+}
+
+aside .nav{
+    padding: 10px;
+}
+
+aside .nav li{
+    padding: 20px 10px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    color: #32475C99;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.fa-chevron-down{
+    font-size: 14px !important;
+    text-align: end !important;
+    flex: 1;
+}
+
+.properties{
+    display: none;
+}
+
+
+.propertiesAct.active i:last-child{
+    transform: rotateX(180deg);
+    text-align: end;
+}
+
+.properties.active {
+    display: block;
+}
+
+.properties li{
+    margin-left: 15px;
+}
+
+aside .nav li:hover{
+    background-color: #cccccc1f;
+}
+
+aside .nav li.active{
+    background-color: #e7e7ff;
+    border-right: 5px solid #696cff ;
+}
+
+aside .nav li i{
+    width: 40px;
+    font-size: 20px;
+    text-align: center;
+    margin-right: 10px; 
+}
+
+main{
+    background-color: #f5f5f9;
+    padding: 10px;
+    width: 82%;
+    min-height: 100vh;
+    position: absolute;
+    right: 0;
+    z-index: 0;
+;
+}
+
+/*  */
+main .container{
+    padding: 10px;
+}
+
+main .container h5{
+    font-size: 28px;
+    color: #32475CDE;
+    font-weight: 400;
+    padding: 10px 0px;
+}
+
+main .container .board{
+    background-color: #fff;
+    width: 100%;
+    padding: 0px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+}
+main .container .board tr th,
+main .container .board tr td{
+    width: calc(100%/4);
+}
+
+
+main .container .board tr th{
+    font-size: 16px;
+    font-weight: 550;
+    color: #32475CDE;
+    padding: 15px 0px;
+    margin: 0;
+}
+
+main .container .board tr td{
+    padding: 10px;
+    font-size: 16px;
+    color: #32475C99;
+    text-align: center;
+    margin: 0;
+    border-top: 1px solid #32475c3a;
+    border-spacing: 0px;
+}
+
+main .container .board tr td a{
+    border-radius: 5px;
+    background: transparent;
+    padding: 5px 10px;
+    margin:5px;
+    cursor: pointer;
+}
+
+main .container .board tr td a:first-child{
+    color: #fff;
+    background-color: rgba(0, 128, 0, 0.681);
+}
+
+main .container .board tr td a:last-child{
+    color: #fff;
+    background-color: rgba(255, 0, 0, 0.718);
+}
+
+
+main .container .action input{
+    background-color: #fff;
+    border: 1px solid #32475c42;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+main .container .action input:hover{
+    background-color: #32475c42;
+}
+/*  */
+main .container .board div {
+    padding: 10px;
+} 
+
+main .container .board div label{
+    font-size: 16px;
+    color: #32475CDE;
+}
+
+main .container .board div input[type="text"],
+main .container .board div input[type="number"]{
+    border: 1px solid #32475CDE;
+    outline: none;
+    padding: 15px 10px;
+    border-radius: 10px;
+    margin: 10px 0px;
+    margin-bottom: 0;
+    width: 300px;
+    color: #32475CDE;
+}
+
+main .container .board div input[type="file"]{
+    background-color: #fff;
+    border: 1px solid #32475CDE;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px 0px;
+}
+
+main .container .board div textarea{
+    padding: 10px;
+    border: 1px solid #32475CDE;
+    margin: 10px 0px;
+    border-radius: 10px;
+    font-style: 16px;
+    color: #32475CDE;
+}
+
+
+main .container .board .submit input{
+    background-color: #fff;
+    border: 1px solid #32475CDE;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+    margin-top: 0;
+}
+
+main .container>p {
+    font-size: 16px;
+    color: #32475CDE;
+    padding: 10px 0px;
+}
+
+/*  */
+
+main .container .board .type{
+    padding: 10px;
+}
+
+main .container .proIMG {
+    display: flex;
+    align-items: center;
+}
+
+main .container .proIMG img{
+    border-radius: 5px;
+    border: 1px solid #32475CDE;
+}
+
+main .container .board .type select{
+    border: 1px solid #32475CDE;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+main .container .board select{
+    border: 1px solid #32475CDE;
+    color: #32475CDE;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+main .container .board .type option{
+    border: 1px solid #32475CDE;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+main .container .board .type input{
+    background-color: #fff;
+    border: 1px solid #32475CDE;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+main .container .board_pro{
+    width: 100%;
+}
+
+main .container .board_pro tr th:first-child,
+main .container .board_pro tr td:first-child{
+    width: 25%;
+}
+
+main .container .board_pro tr th,
+main .container .board_pro tr td{
+    width: calc(75%/6);
+}
+
+
+main .container .board_pro tr th{
+    font-size: 16px;
+    font-weight: 550;
+    color: #32475CDE;
+    padding: 15px 0px;
+    margin: 0;
+}
+
+main .container .board_pro tr td .more{
+    background-color: #696cff !important;
+}
+
+
+main .container .board_pro tr td{
+    font-size: 16px;
+    color: #32475C99;
+    text-align: center;
+    margin: 0;
+    border-top: 1px solid #32475c3a;
+    border-spacing: 0px;
+}
+
+main .container .board_pro tr .des{
+    max-width: 50px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+main .container .board_pro tr td img{
+    width: 50px;
+    padding: 5px;
+}
+
+main .container .board_pro tr td input[type=button]{
+    border: 1px solid #32475CDE;
+    border-radius: 5px;
+    background: transparent;
+    padding: 5px 10px;
+    margin:10px;
+    cursor: pointer;
+}
+
+main .container .board_pro tr td input[type=button]:hover{
+    background-color: #32475c42;
+}
+
+main .container .board_sto tr th,
+main .container .board_sto tr td{
+    width: calc(100%/4) !important;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder{
+    color: #32475c48;
+}
