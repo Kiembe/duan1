@@ -38,6 +38,7 @@
                                 extract($pro);
                                 $update = "index.php?act=update_pro&id=".$id;
                                 $delete = "index.php?act=delete_pro&id=".$id;
+                                $variant = "index.php?act=variant_pro&id=".$id;
                                 echo '
                                 <tr>
                                     <td>'.$i.'</td>
@@ -46,7 +47,7 @@
                                     <td>'.$price.'</td>
                                     <td>0</td>
                                     <td>
-                                        <a href="'.$update.'" class="more"><i class="fa-solid fa-puzzle-piece"></i></a>
+                                        <a href="'.$variant.'" class="more"><i class="fa-solid fa-puzzle-piece"></i></a>
                                     </td>
                                     <td><a href="'.$update.'"><i class="fa-regular fa-pen-to-square"></i></a><a href="'.$delete.'"><i class="fa-regular fa-trash-can"></i></a></td>
                                 </tr>

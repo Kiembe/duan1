@@ -34,24 +34,10 @@
                     </select>
             </div>
             <div class="proName">
-                <label for="">Tên Sản Phẩm</label><br>
-                <input type="text" name="proName" placeholder="iPhone....." value="<?=$proName?>">
+                <label >Sản Phẩm</label><br>
+                <p><i class="fa-solid fa-angles-right"></i> <?=$proName?></p>
             </div>
-            <div class="proPrice">
-                <label for="">Giá Sản Phẩm</label><br>
-                <input type="text" name="proPrice" placeholder="0" value="<?=$price?>">
-            </div>
-            <div class="proIMG">
-                <div>
-                <label for="">Hình Ảnh Sản Phẩm</label><br>
-                <input type="file" name="proIMG">
-                </div>
-                <?=$img?>
-            </div>
-            <div class="proDescription">
-                <label for="">Mô Tả Sản Phẩm</label><br>
-                <textarea name="proDes" id="editor" cols="30" rows="10" ><?=$description?></textarea>
-            </div>
+            
             <div class="submit">
                 <input type="hidden" name="id" value="<?=$idPro?>">
                 <input type="submit" name="update" value="Cập Nhật">

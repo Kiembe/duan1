@@ -334,3 +334,9 @@ input[type="text"]::placeholder,
 input[type="number"]::placeholder{
     color: #32475c48;
 }
+
+.proName>p{
+    font-size: 20px ;
+    padding: 10px;
+    color: #32475CDE;
+}

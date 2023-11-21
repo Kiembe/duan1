@@ -44,6 +44,7 @@ if (isset($_GET['act'])) {
             $listCategories = loadall_categories();
             include "categories/list.php";
             break;
+            // <-- Product -->
         case "sanpham":
             if(isset($_POST['filter'])&&($_POST['filter'])){
                 // $key=$_POST['key'];
@@ -84,6 +85,43 @@ if (isset($_GET['act'])) {
             $listCategories = loadall_categories(); 
             include "products/update.php";
             break;
+        case "update_listPro":
+            if(isset($_POST['update'])&&($_POST['update'])){
+                $id = $_POST['id'];
+                $id_cat = $_POST['id_cat'];
+                $name = $_POST['proName'];
+                $price = $_POST['proPrice'];
+                $image= $_FILES['proIMG']['name'];
+                $des = $_POST['proDes'];
+                $target_dir = "../uploads/";
+                $target_file = $target_dir . basename($_FILES["proIMG"]["name"]);
+                if(move_uploaded_file($_FILES["proIMG"]["tmp_name"],$target_file)) {
+
+                }else{
+
+                }
+                update_products($id,$name,$price,$image,$des,$id_cat);
+                $log = "Cập nhật thành công";
+            }
+            $listCategories = loadall_categories();
+            $listProduct = loadall_products();
+            include "products/list.php";
+            break;
+        case "delete_pro":
+            if(isset($_GET['id']) && ($_GET['id']>0)){
+                delete_products($_GET['id']);
+            }
+            $listProduct = loadall_products();
+            include "products/list.php";
+            break;
+        case "variant_pro":
+            if(isset($_GET['id']) && ($_GET['id']>0)){
+                $product=loadone_products($_GET['id']);
+            }
+            $listCategories = loadall_categories(); 
+            include"products/variant.php";
+            break;
+            // <-- Properties -->
         case "thuoctinh" :
             $listColor = loadall_color();
             $listStorage = loadall_storage();

@@ -20,11 +20,11 @@ function loadall_products($id_cat=0) {
     return $listproducts;
 }
 
-// function loadall_products_home() {
-//     $sql = "SELECT * FROM products WHERE 1 ORDER BY price DESC LIMIT 0,9";
-//     $listproducts = pdo_query($sql);
-//     return $listproducts;
-// }
+function loadall_products_home() {
+    $sql = "SELECT * FROM products WHERE 1 ORDER BY id DESC LIMIT 0,7";
+    $listproducts = pdo_query($sql);
+    return $listproducts;
+}
 
 // function loadall_products_top10() {
 //     $sql = "SELECT * FROM products WHERE 1 ORDER BY luotxem DESC LIMIT 0,5";
@@ -44,11 +44,11 @@ function loadone_products($id){
     return $product;
 }
 
-function upadate_products($id,$tensp,$giasp,$mota,$hinh,$iddm){
-    if($hinh != "")
-        $sql ="UPDATE products SET name='".$tensp."', price='".$giasp."', mota='".$mota."', image='".$hinh."',id_danhmuc='".$iddm."' WHERE id=".$id;
+function update_products($id,$name,$price,$image,$des,$id_cat){
+    if($image != "")
+    $sql ="UPDATE products SET name='".$name."', price='".$price."', image='".$image."', description='".$des."',id_cat='".$id_cat."' WHERE id=".$id;
     else
-        $sql ="UPDATE products SET name='".$tensp."', price='".$giasp."', mota='".$mota."', id_danhmuc='".$iddm."' WHERE id=".$id;
+        $sql ="UPDATE products SET name='".$name."', price='".$price."', description='".$des."',id_cat='".$id_cat."' WHERE id=".$id;
     pdo_execute($sql);
 }
 
