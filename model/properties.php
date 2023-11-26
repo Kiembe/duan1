@@ -27,33 +27,42 @@ function loadone_storage($id){
     return $sto;
 }
 
-// break
-function insert_color($name,$code){
-    $sql = "INSERT INTO color(name,code) values('$name','$code')";
+function insert_variant($id_product,$id_storage,$price,$quantity){
+    $sql = "INSERT INTO product_detail(id_product,id_storage,price,quantity) values('$id_product','$id_storage','$price','$quantity')";
     pdo_execute($sql);
 }
 
-function loadall_color() {
-    $sql = "SELECT * FROM color order by id desc";
-    $listColor = pdo_query($sql);
-    return $listColor;
-}
-
-function delete_color($id){
-    $sql= "DELETE FROM color WHERE id =".$id;
+function delete_variant($id_detail){
+    $sql = "DELETE FROM product_detail WHERE id=".$id_detail;
     pdo_execute($sql);
 }
 
-function upadate_color($id,$name,$code){
-    $sql = "UPDATE color SET name='".$name."',code='".$code."' WHERE id=".$id;
+function update_variant($id_product,$id_storage,$price,$quantity,$id_detail){
+    $sql = "UPDATE product_detail SET id_product='".$id_product."',id_storage='".$id_storage."',price='".$price."',quantity='".$quantity."' WHERE id=".$id_detail;
     pdo_execute($sql);
 }
 
-function loadone_color($id){
-    $sql = "SELECT * FROM color WHERE id=".$id;
-    $color = pdo_query_one($sql);
-    return $color;
+function load_variant($id) {
+    $sql = "SELECT * FROM product_detail WHERE id_product=".$id;
+    $det = pdo_query($sql);
+    return $det;
 }
 
+function loadone_variant($id){
+    $sql = "SELECT * FROM product_detail WHERE id=".$id;
+    $sto = pdo_query_one($sql);
+    return $sto;
+}
+
+// function update_variant($id_product,$id_storage,$price,$quantity){
+//     $sql = "INSERT INTO product_detail(id_product,id_storage,price,quantity) values('$id_product','$id_storage','$price','$quantity')";
+//     pdo_execute($sql);
+// }
+
+function insert_countVariant($i,$id) {
+    $sql = "UPDATE `products` SET `variant` = '".$i."' WHERE `products`.`id` =".$id;
+    pdo_execute($sql);
+
+}
 
 ?>

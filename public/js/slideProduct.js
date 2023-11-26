@@ -1,5 +1,17 @@
 "use strict";
 
+const VND = new Intl.NumberFormat('vi-VN', {
+  style: 'currency',
+  currency: 'VND',
+});
+
+const money = document.querySelectorAll('.price')
+console.log(money);
+money.forEach((e,i) => {
+  const price = e.textContent
+  money[i].innerHTML = VND.format(price)
+})
+
 productScroll();
 
 function productScroll() {
@@ -83,4 +95,11 @@ window.onscroll = () => {
   searchBoard.classList.remove('active')
 }
 
+const userBtn = document.querySelector('.userName')
+const subUser = document.querySelector('.subAcc')
+
+userBtn.onclick = () => {
+  subUser.classList.toggle('active')
+  userBtn.classList.toggle('active')
+}
 

@@ -38,16 +38,20 @@
                                 extract($pro);
                                 $update = "index.php?act=update_pro&id=".$id;
                                 $delete = "index.php?act=delete_pro&id=".$id;
-                                $variant = "index.php?act=variant_pro&id=".$id;
+                                if($variant > 0){
+                                    $var = "index.php?act=variant_update&id=".$id;
+                                }else{
+                                    $var = "index.php?act=variant_pro&id=".$id;
+                                }
                                 echo '
                                 <tr>
                                     <td>'.$i.'</td>
                                     <td>'.$name.'</td>
                                     <td><img src="../uploads/'.$image.'"></td>
                                     <td>'.$price.'</td>
-                                    <td>0</td>
+                                    <td>'.$variant.'</td>
                                     <td>
-                                        <a href="'.$variant.'" class="more"><i class="fa-solid fa-puzzle-piece"></i></a>
+                                        <a href="'.$var.'" class="more"><i class="fa-solid fa-puzzle-piece"></i></a>
                                     </td>
                                     <td><a href="'.$update.'"><i class="fa-regular fa-pen-to-square"></i></a><a href="'.$delete.'"><i class="fa-regular fa-trash-can"></i></a></td>
                                 </tr>

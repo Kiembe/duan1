@@ -41,13 +41,13 @@
             <?php 
                 foreach($listProduct as $pro){
                     extract($pro);
+                    $linkPro = "index.php?act=prodetail&id=".$id;
                     echo '
-                    <a href="" class="item">
+                    <a href="'.$linkPro.'" class="item">
                     <img src="./uploads/'.$image.'">
                     <div class="detail">
                         <div class="infor">
                             <p>'.$name.'</p>
-                            <p>'.$price.'</p>
                         </div>
                         <div class="act">
                             <button>Mua</button>

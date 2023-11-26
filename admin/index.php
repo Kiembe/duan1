@@ -109,6 +109,7 @@ if (isset($_GET['act'])) {
             break;
         case "delete_pro":
             if(isset($_GET['id']) && ($_GET['id']>0)){
+                // delete_variantbyPRo($_GET['id']);
                 delete_products($_GET['id']);
             }
             $listProduct = loadall_products();
@@ -118,18 +119,83 @@ if (isset($_GET['act'])) {
             if(isset($_GET['id']) && ($_GET['id']>0)){
                 $product=loadone_products($_GET['id']);
             }
+            $listStorage = loadall_storage();
             $listCategories = loadall_categories(); 
             include"products/variant.php";
             break;
-            // <-- Properties -->
-        case "thuoctinh" :
-            $listColor = loadall_color();
+        case "add_variant";
             $listStorage = loadall_storage();
-            include "./properties/list.php";
+            if(isset($_POST['add'])&&($_POST['add'])){
+                $i = -1;
+                foreach($listStorage as $sto){
+                    $i++;
+                    extract($sto);
+                    $id_product = $_POST['id'];
+                    $id_storage = $_POST['id_sto'.$i];
+                    $price = $_POST['price'.$i];
+                    $quantity = $_POST['quantity'.$i];
+                    if($quantity > 0){
+                        insert_variant($id_product,$id_storage,$price,$quantity);
+                        insert_countVariant($i+1,$_POST['id']);
+                    }
+                }
+            }
+            $listCategories = loadall_categories();
+            $listProduct = loadall_products();
+            include "products/list.php";
             break;
+        case "variant_update":
+            if(isset($_GET['id']) && ($_GET['id']>0)){
+                $product=loadone_products($_GET['id']);
+                $listProDetail = load_products_detail($_GET['id']);
+            }
+            $listStorage = loadall_storage();
+            $listCategories = loadall_categories(); 
+            include "products/variantUpdate.php";
+            break;
+        case "update_variant" :
+            $listStorage = loadall_storage();
+            if(isset($_POST['update'])&&($_POST['update'])){
+                $i = -1;
+                foreach($listStorage as $sto){
+                    extract($sto);
+                    // if(isset($_POST['id_detail'.$i])){
+                        $i++;
+                            $id_product = $_POST['id'];
+                            $id_storage = $_POST['id_sto'.$i];
+                            $id_detail = $_POST['id_detail'.$i];
+                            $price = $_POST['price'.$i];
+                            $quantity = $_POST['quantity'.$i];
+                            if($id_detail == 0){
+                                insert_variant($id_product,$id_storage,$price,$quantity);
+
+                            }
+                            if($quantity > 0){
+                                // delete_variant($id_detail);
+                                update_variant($id_product,$id_storage,$price,$quantity,$id_detail);
+                                insert_countVariant($i+1,$_POST['id']);
+                            }
+                        }
+                    // }
+                }
+            $listCategories = loadall_categories();
+            $listProduct = loadall_products();
+            include "products/list.php";
+            break;
+        case "reset_variant" :
+            if(isset($_GET['id']) && ($_GET['id']>0)){
+                delete_variant($_GET['id']);
+                $product=loadone_products($_GET['idPro']);
+                $listProDetail = load_products_detail($_GET['idPro']);
+            }
+            $listStorage = loadall_storage();
+            $listCategories = loadall_categories(); 
+            include "products/variantUpdate.php";
+            break;
+            // <-- Properties -->
         case "dungluong" :
             $listStorage = loadall_storage();
-            include "./properties/storage/list.php";
+            include "./storage/list.php";
             break;
         case "them_dung_luong":
             if(isset($_POST['add'])&&($_POST['add'])){
@@ -138,20 +204,20 @@ if (isset($_GET['act'])) {
                 insert_storage($capacity,$unit);
                 $log = "Thêm thành công";
             }
-            include "./properties/storage/add.php";
+            include "./storage/add.php";
             break;
         case 'delete_sto' :
             if(isset($_GET['id']) && ($_GET['id']>0)){
                 delete_storage($_GET['id']);
             }
             $listStorage = loadall_storage();
-            include "./properties/storage/list.php";
+            include "./storage/list.php";
             break;
         case "update_sto":
             if(isset($_GET['id']) && ($_GET['id']>0)){
                 $sto=loadone_storage($_GET['id']);
             }
-            include "./properties/storage/update.php";
+            include "./storage/update.php";
             break;
         case "update_listSto":
             if(isset($_POST['update'])&&($_POST['update'])){
@@ -162,46 +228,10 @@ if (isset($_GET['act'])) {
                 $log = "Cập nhật thành công";
             }
             $listStorage = loadall_storage();
-            include "./properties/storage/list.php";
+            include "./storage/list.php";
             break;
             // br
-        case "mausac" :
-            $listColor = loadall_color();
-            include "./properties/color/list.php";
-            break;
-        case "them_mau_sac":
-            if(isset($_POST['add'])&&($_POST['add'])){
-                $name = $_POST['name'];
-                $code = $_POST['code'];
-                insert_color($name,$code);
-                $log = "Thêm thành công";
-            }
-            include "./properties/color/add.php";
-            break;
-        case 'delete_color' :
-            if(isset($_GET['id']) && ($_GET['id']>0)){
-                delete_color($_GET['id']);
-            }
-            $listColor = loadall_color();
-            include "./properties/color/list.php";
-            break;
-        case "update_color":
-            if(isset($_GET['id']) && ($_GET['id']>0)){
-                $color=loadone_color($_GET['id']);
-            }
-            include "./properties/color/update.php";
-            break;
-        case "update_listColor":
-            if(isset($_POST['update'])&&($_POST['update'])){
-                $name = $_POST['name'];
-                $code = $_POST['code'];
-                $id=$_POST['id'];
-                upadate_color($id,$name,$code);
-                $log = "Cập nhật thành công";
-            }
-            $listColor = loadall_color();
-            include "./properties/color/list.php";
-            break;
+        
         default:
             include "home.php";
             break;

@@ -31,7 +31,7 @@ aside .nav li{
     display: flex;
     align-items: center;
     color: #32475C99;
-    border-radius: 10px;
+    
     transition: 0.5s;
 }
 
@@ -102,7 +102,7 @@ main .container .board{
     background-color: #fff;
     width: 100%;
     padding: 0px 10px;
-    border-radius: 10px;
+    
     box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
 }
 main .container .board tr th,
@@ -130,8 +130,7 @@ main .container .board tr td{
 }
 
 main .container .board tr td a{
-    border-radius: 5px;
-    background: transparent;
+        background: transparent;
     padding: 5px 10px;
     margin:5px;
     cursor: pointer;
@@ -152,7 +151,7 @@ main .container .action input{
     background-color: #fff;
     border: 1px solid #32475c42;
     padding: 10px;
-    border-radius: 10px;
+    
     margin: 10px 0px;
     cursor: pointer;
 }
@@ -175,7 +174,7 @@ main .container .board div input[type="number"]{
     border: 1px solid #32475CDE;
     outline: none;
     padding: 15px 10px;
-    border-radius: 10px;
+    
     margin: 10px 0px;
     margin-bottom: 0;
     width: 300px;
@@ -186,7 +185,7 @@ main .container .board div input[type="file"]{
     background-color: #fff;
     border: 1px solid #32475CDE;
     padding: 10px;
-    border-radius: 10px;
+    
     cursor: pointer;
     margin: 10px 0px;
 }
@@ -195,7 +194,7 @@ main .container .board div textarea{
     padding: 10px;
     border: 1px solid #32475CDE;
     margin: 10px 0px;
-    border-radius: 10px;
+    
     font-style: 16px;
     color: #32475CDE;
 }
@@ -205,7 +204,7 @@ main .container .board .submit input{
     background-color: #fff;
     border: 1px solid #32475CDE;
     padding: 10px;
-    border-radius: 10px;
+    
     cursor: pointer;
     margin: 10px;
     margin-top: 0;
@@ -229,38 +228,33 @@ main .container .proIMG {
 }
 
 main .container .proIMG img{
-    border-radius: 5px;
-    border: 1px solid #32475CDE;
+        border: 1px solid #32475CDE;
 }
 
 main .container .board .type select{
     border: 1px solid #32475CDE;
     padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
+        cursor: pointer;
 }
 
 main .container .board select{
     border: 1px solid #32475CDE;
     color: #32475CDE;
     padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
+        cursor: pointer;
 }
 
 main .container .board .type option{
     border: 1px solid #32475CDE;
     padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
+        cursor: pointer;
 }
 
 main .container .board .type input{
     background-color: #fff;
     border: 1px solid #32475CDE;
     padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
+        cursor: pointer;
 }
 
 main .container .board_pro{
@@ -314,8 +308,7 @@ main .container .board_pro tr td img{
 
 main .container .board_pro tr td input[type=button]{
     border: 1px solid #32475CDE;
-    border-radius: 5px;
-    background: transparent;
+        background: transparent;
     padding: 5px 10px;
     margin:10px;
     cursor: pointer;
@@ -340,3 +333,18 @@ input[type="number"]::placeholder{
     padding: 10px;
     color: #32475CDE;
 }
+
+
+.capacity,
+.color{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.capacity tr td input[type="number"],
+.color tr td input[type="number"]{
+    padding: 10px;
+    outline: none;
+    border: 1px solid #32475CDE;
+}
+

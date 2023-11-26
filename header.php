@@ -20,20 +20,73 @@
     <div class="wrapper">
         <header>
             <div class="head">
-                <img src="./public/img/Apple-logo.png" class="logo">
+                <a href="index.php">
+                    <img src="./public/img/Apple-logo.png" class="logo">
+                </a>
 
                 <div class="action">
                     <button class="searchBtn">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
 
-                    <a href="#">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
-
-                    <a href="">
+                    <a href="index.php?act=view_cart">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </a>
+
+                    
+
+                    <?php
+                        if(isset($_SESSION['name']['name'])&&($_SESSION['name']['name'] != "")){
+                            if($_SESSION['name']['role'] == 1){
+                                echo '
+                                        <div class="userName">
+                                            <i class="fa-solid fa-user"></i>
+                                            <p>'.$_SESSION['name']['name'].'</p>
+                                            <div class="subAcc">
+                                                <ul>
+                                                    <a href="index.php?act=user_info">
+                                                        <li>Thông Tin Tài Khoản</li>
+                                                    </a>
+    
+                                                    <a href="./admin/">
+                                                        <li>Trang Quản Trị</li>
+                                                    </a>
+    
+                                                    <a href="index.php?act=log_out">
+                                                        <li>Đăng Xuất</li>
+                                                    </a>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                ';
+                            }else{
+                                echo '
+                                        <div class="userName">
+                                            <i class="fa-solid fa-user"></i>
+                                            <p>'.$_SESSION['name']['name'].'</p>
+                                            <div class="subAcc">
+                                                <ul>
+                                                    <a href="index.php?act=user_info">
+                                                        <li>Thông Tin Tài Khoản</li>
+                                                    </a>
+    
+                                                    <a href="index.php?act=log_out">
+                                                        <li>Đăng Xuất</li>
+                                                    </a>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                ';
+                            }
+                        }else{
+                            echo '
+                                <a href="index.php?act=sign_in">
+                                    <i class="fa-solid fa-user"></i>
+                                </a>
+                            ';
+                        }
+                    ?>
+
                 </div>
             </div>
         </header>

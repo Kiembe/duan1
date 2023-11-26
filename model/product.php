@@ -44,6 +44,18 @@ function loadone_products($id){
     return $product;
 }
 
+function load_products_detail($id) {
+    $sql = "SELECT * FROM product_detail WHERE id_product=".$id;
+    $listproducts = pdo_query($sql);
+    return $listproducts;
+}
+
+function loadone_products_detail($id){
+    $sql = "SELECT * FROM products_detail WHERE id=".$id;
+    $product = pdo_query_one($sql);
+    return $product;
+}
+
 function update_products($id,$name,$price,$image,$des,$id_cat){
     if($image != "")
     $sql ="UPDATE products SET name='".$name."', price='".$price."', image='".$image."', description='".$des."',id_cat='".$id_cat."' WHERE id=".$id;
@@ -62,6 +74,16 @@ function load_nameCat($id_cat){
         return "";
     }
 }
+
+// function delete_variantbyPRo($id) {
+//     $sql = "DELETE FROM products_detail
+//     WHERE EXISTS
+//     (SELECT *
+//     FROM product_detail
+//     WHERE product_detail.id_product =".$id;
+//     pdo_execute($sql);
+// }
+
 
 // function load_productscungloai($id,$id_danhmuc){
 //     $sql = "SELECT * FROM products WHERE id_danhmuc= ".$id_danhmuc." AND id <>".$id;

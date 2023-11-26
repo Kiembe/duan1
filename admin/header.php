@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-        <script src="./ckeditor5/build/ckeditor.js"></script>
+    <script src="./ckeditor5/build/ckeditor.js"></script>
     <title>Trang Quản Trị</title>
 </head>
 
@@ -29,21 +29,9 @@
                 <a href="index.php?act=danhmuc">
                     <li><i class="fa-solid fa-list-check"></i>Danh Mục</li>
                 </a>
-                <a href="index.php?act=thuoctinh" class="propertiesAct">
-                    <li>
-                        <i class="fa-solid fa-gear"></i>
-                        Thuộc Tính
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </li>
+                <a href="index.php?act=dungluong">
+                    <li><i class="fa-solid fa-microchip"></i>Bộ Nhớ</li>
                 </a>
-                <div class="properties">
-                    <a href="index.php?act=dungluong">
-                        <li><i class="fa-solid fa-microchip"></i>Bộ Nhớ</li>
-                    </a>
-                    <a href="index.php?act=mausac">
-                        <li><i class="fa-solid fa-palette"></i>Màu Sắc</li>
-                    </a>
-                </div>
                 <a href="index.php?act=sanpham">
                     <li><i class="fa-solid fa-mobile-screen"></i>Sản Phẩm</li>
                 </a>
@@ -58,6 +46,10 @@
                 </a>
                 <a href="index.php?act=thongke">
                     <li><i class="fa-solid fa-money-bill-trend-up"></i>Thống Kê</li>
+                </a>
+
+                <a href="../">
+                    <li><i class="fa-solid fa-right-from-bracket"></i></i>Thoát Trang Quản Trị</li>
                 </a>
             </ul>
         </aside>

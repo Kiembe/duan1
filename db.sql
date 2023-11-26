@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 19, 2023 lúc 02:35 PM
+-- Thời gian đã tạo: Th10 26, 2023 lúc 11:49 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.1.17
 
@@ -67,26 +67,8 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `name`) VALUES
 (13, 'iPhone'),
-(14, 'iPad');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `color`
---
-
-CREATE TABLE `color` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `code` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `color`
---
-
-INSERT INTO `color` (`id`, `name`, `code`) VALUES
-(4, 'Trắng', '#fff');
+(14, 'iPad'),
+(15, 'Macbook');
 
 -- --------------------------------------------------------
 
@@ -114,7 +96,7 @@ CREATE TABLE `products` (
   `price` int(11) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `view` int(11) DEFAULT NULL,
+  `variant` int(11) DEFAULT 0,
   `id_cat` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -122,10 +104,10 @@ CREATE TABLE `products` (
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `price`, `image`, `description`, `view`, `id_cat`) VALUES
-(8, 'iPhone 15 Pro', 30000, 'anh c1.jpg', '<p>Màn hình:</p><p>OLED6.1\"Super Retina XDR</p><p>Hệ điều hành:</p><p>iOS 17</p><p>Camera sau:</p><p>Chính 48 MP &amp; Phụ 12 MP, 12 MP</p><p>Camera trước:</p><p>12 MP</p><p>Chip:</p><p>Apple A17 Pro 6 nhân</p><p>RAM:</p><p>8 GB</p><p>Dung lượng lưu trữ:<', NULL, 13),
-(9, 'iPhone 14 ', 20000, 'peakpx.jpg', '<p>Màn hình:</p><p>OLED6.1\"Super Retina XDR</p><p>Hệ điều hành:</p><p>iOS 17</p><p>Camera sau:</p><p>Chính 48 MP &amp; Phụ 12 MP, 12 MP</p><p>Camera trước:</p><p>12 MP</p><p>Chip:</p><p>Apple A17 Pro 6 nhân</p><p>RAM:</p><p>8 GB</p><p>Dung lượng lưu trữ:<', NULL, 13),
-(10, 'iPad Mini', 50000, 'BG.jpg', '<p>Màn hình:</p><p>OLED6.1\"Super Retina XDR</p><p>Hệ điều hành:</p><p>iOS 17</p><p>Camera sau:</p><p>Chính 48 MP &amp; Phụ 12 MP, 12 MP</p><p>Camera trước:</p><p>12 MP</p><p>Chip:</p><p>Apple A17 Pro 6 nhân</p><p>RAM:</p><p>8 GB</p><p>Dung lượng lưu trữ:<', NULL, 14);
+INSERT INTO `products` (`id`, `name`, `price`, `image`, `description`, `variant`, `id_cat`) VALUES
+(8, 'iPhone 15 Pro', 35000, 'ip15.png', '<p>Màn hình:</p><p>OLED6.1\"Super Retina XDR</p><p>Hệ điều hành:</p><p>iOS 17</p><p>Camera sau:</p><p>Chính 48 MP &amp; Phụ 12 MP, 12 MP</p><p>Camera trước:</p><p>12 MP</p><p>Chip:</p><p>Apple A17 Pro 6 nhân</p><p>RAM:</p><p>8 GB</p><p>Dung lượng lưu trữ:&', 3, 13),
+(9, 'iPhone 14 ', 20000, 'ip14.png', '<p>Màn hình:</p><p>OLED6.1\"Super Retina XDR</p><p>Hệ điều hành:</p><p>iOS 17</p><p>Camera sau:</p><p>Chính 48 MP &amp; Phụ 12 MP, 12 MP</p><p>Camera trước:</p><p>12 MP</p><p>Chip:</p><p>Apple A17 Pro 6 nhân</p><p>RAM:</p><p>8 GB</p><p>Dung lượng lưu trữ:&', 3, 13),
+(10, 'iPad Mini 6', 50000, 'ip6.png', '<p>Màn hình:</p><p>OLED6.1\"Super Retina XDR</p><p>Hệ điều hành:</p><p>iOS 17</p><p>Camera sau:</p><p>Chính 48 MP &amp; Phụ 12 MP, 12 MP</p><p>Camera trước:</p><p>12 MP</p><p>Chip:</p><p>Apple A17 Pro 6 nhân</p><p>RAM:</p><p>8 GB</p><p>Dung lượng lưu trữ:&', 2, 14);
 
 -- --------------------------------------------------------
 
@@ -136,11 +118,34 @@ INSERT INTO `products` (`id`, `name`, `price`, `image`, `description`, `view`, `
 CREATE TABLE `product_detail` (
   `id` int(11) NOT NULL,
   `id_product` int(11) DEFAULT NULL,
-  `id_color` int(11) DEFAULT NULL,
   `id_storage` int(11) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `product_detail`
+--
+
+INSERT INTO `product_detail` (`id`, `id_product`, `id_storage`, `price`, `quantity`) VALUES
+(80, 10, 10, 25000000, 20),
+(81, 10, 9, 22999000, 12),
+(82, 10, 8, 0, 0),
+(83, 10, 9, 0, 0),
+(84, 10, 10, 0, 0),
+(85, 9, 10, 25999000, 100),
+(86, 9, 9, 24000000, 100),
+(87, 9, 8, 20000000, 100),
+(88, 9, 8, 0, 0),
+(89, 9, 9, 0, 0),
+(90, 9, 10, 0, 0),
+(101, 8, 10, 30000000, 100),
+(102, 10, 5, 0, 0),
+(103, 8, 9, 29500000, 100),
+(104, 8, 8, 28000000, 300),
+(105, 8, 7, 0, 0),
+(106, 8, 6, 0, 0),
+(107, 8, 5, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -163,7 +168,8 @@ INSERT INTO `storage` (`id`, `capacity`, `unit`) VALUES
 (6, '64', 'GB'),
 (7, '128', 'GB'),
 (8, '256', 'GB'),
-(9, '512', 'GB');
+(9, '512', 'GB'),
+(10, '1', 'TB');
 
 -- --------------------------------------------------------
 
@@ -173,15 +179,20 @@ INSERT INTO `storage` (`id`, `capacity`, `unit`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `user` int(11) DEFAULT NULL,
-  `passwork` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `img` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
   `tel` int(11) DEFAULT NULL,
-  `role` int(11) DEFAULT NULL
+  `role` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `password`, `email`, `tel`, `role`) VALUES
+(2, 'admin', 'admin', 'kiemkoi13@gmail.com', 336408954, 1),
+(3, 'user', 'user', 'kiemkoi12@gmail.com', 686868686, 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -206,12 +217,6 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `color`
---
-ALTER TABLE `color`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Chỉ mục cho bảng `comments`
 --
 ALTER TABLE `comments`
@@ -228,7 +233,9 @@ ALTER TABLE `products`
 -- Chỉ mục cho bảng `product_detail`
 --
 ALTER TABLE `product_detail`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_product` (`id_product`),
+  ADD KEY `id_storage` (`id_storage`);
 
 --
 -- Chỉ mục cho bảng `storage`
@@ -250,25 +257,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT cho bảng `color`
---
-ALTER TABLE `color`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT cho bảng `product_detail`
+--
+ALTER TABLE `product_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT cho bảng `storage`
 --
 ALTER TABLE `storage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT cho bảng `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -279,6 +292,13 @@ ALTER TABLE `storage`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`id_cat`) REFERENCES `categories` (`id`);
+
+--
+-- Các ràng buộc cho bảng `product_detail`
+--
+ALTER TABLE `product_detail`
+  ADD CONSTRAINT `product_detail_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `product_detail_ibfk_2` FOREIGN KEY (`id_storage`) REFERENCES `storage` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
