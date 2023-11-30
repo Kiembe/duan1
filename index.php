@@ -76,6 +76,7 @@
                     $proName = $_POST['proName'];
                     $proImg = $_POST['proImg'];
                     $proPrice = $_POST['proPrice'];
+                    $variant = $_POST['idSto'];
                     $count = 1;
                     $flag = 0;
 
@@ -91,14 +92,23 @@
                     }
 
                     if($flag == 0){
-                        $cartItem = array($id,$proName,$proImg,$proPrice,$count,$idVariant);
+                        $cartItem = array($id,$proName,$proImg,$proPrice,$count,$idVariant,$variant);
                         $_SESSION['cart'][]=$cartItem;
                     }
                     // header("Location: index.php?act=cart");
                 }
+                $listStorage = loadall_storage();
                 include "./views/cart.php";
                 break;
             case "view_cart" :
+                $listStorage = loadall_storage();
+                include "./views/cart.php";
+                break;
+            case "deleteOnePro_cart" :
+                if(isset($_GET['id']) && ($_GET['id']>=0)){
+                    unset($_SESSION['cart'][$_GET['id']]);
+                }
+                $listStorage = loadall_storage();
                 include "./views/cart.php";
                 break;
             case "delete_cart" :

@@ -38,11 +38,11 @@
                 <a href="index.php?act=donhang">
                     <li><i class="fa-solid fa-cart-shopping"></i>Đơn Hàng</li>
                 </a>
-                <a href="index.php?act=binhluan">
-                    <li><i class="fa-solid fa-comments"></i>Bình Luận</li>
-                </a>
                 <a href="index.php?act=nguoidung">
                     <li><i class="fa-solid fa-user"></i>Người Dùng</li>
+                </a>
+                <a href="index.php?act=binhluan">
+                    <li><i class="fa-solid fa-comments"></i>Bình Luận</li>
                 </a>
                 <a href="index.php?act=thongke">
                     <li><i class="fa-solid fa-money-bill-trend-up"></i>Thống Kê</li>

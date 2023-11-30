@@ -348,3 +348,28 @@ input[type="number"]::placeholder{
     border: 1px solid #32475CDE;
 }
 
+main .container .board_user tr th,
+main .container .board_user tr td{
+    width: calc(100%/7) !important;
+}
+
+main .container .board_user tr td a{
+    background-color: rgba(0, 128, 0, 0.681) !important;
+}
+
+main .container .board_user p {
+    color: #32475CDE ;  
+}
+
+main .container .board_user p span{
+    font-weight: bold;
+}
+
+main .container .board_user div select{
+    margin-top: 10px;
+    outline: none;
+}
+
+main .container .board_user .submit input{
+    margin-left: 0;
+}

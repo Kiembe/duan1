@@ -425,7 +425,7 @@ nav ul li:hover p{
   }
 
   main .product .left img{
-    width: 500px;
+    width: 400px;
   }
 
   main .product .right{
@@ -667,7 +667,7 @@ nav ul li:hover p{
 }
  .board tr th,
  .board tr td{
-  width: calc(100%/7);
+  width: calc(100%/8);
 }
 
 

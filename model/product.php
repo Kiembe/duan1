@@ -75,14 +75,15 @@ function load_nameCat($id_cat){
     }
 }
 
-// function delete_variantbyPRo($id) {
-//     $sql = "DELETE FROM products_detail
-//     WHERE EXISTS
-//     (SELECT *
-//     FROM product_detail
-//     WHERE product_detail.id_product =".$id;
-//     pdo_execute($sql);
-// }
+function delete_variantbyPRo($id) {
+    $sql = "DELETE FROM product_detail WHERE id_product=".$id;
+    pdo_execute($sql);
+}
+
+function delete_variantbySto($id) {
+    $sql = "DELETE FROM product_detail WHERE id_storage=".$id;
+    pdo_execute($sql);
+}
 
 
 // function load_productscungloai($id,$id_danhmuc){

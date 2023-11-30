@@ -5,6 +5,7 @@ include "../model/pdo.php";
 include "../model/categories.php";
 include "../model/properties.php";
 include "../model/product.php";
+include "../model/user.php";
 
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
@@ -109,7 +110,7 @@ if (isset($_GET['act'])) {
             break;
         case "delete_pro":
             if(isset($_GET['id']) && ($_GET['id']>0)){
-                // delete_variantbyPRo($_GET['id']);
+                delete_variantbyPRo($_GET['id']);
                 delete_products($_GET['id']);
             }
             $listProduct = loadall_products();
@@ -208,6 +209,7 @@ if (isset($_GET['act'])) {
             break;
         case 'delete_sto' :
             if(isset($_GET['id']) && ($_GET['id']>0)){
+                delete_variantbySto($_GET['id']);
                 delete_storage($_GET['id']);
             }
             $listStorage = loadall_storage();
@@ -231,7 +233,27 @@ if (isset($_GET['act'])) {
             include "./storage/list.php";
             break;
             // br
-        
+        case "nguoidung" :
+            $listUser = loadall_users();
+            include "./user/list.php";
+            break;
+        case "update_role" :
+            if(isset($_GET['id']) && ($_GET['id']>0)){
+                $user=loadone_user($_GET['id']);
+            }
+            include "./user/updateRole.php";
+            break;
+        case "role_update" :
+            if(isset($_POST['update'])&&($_POST['update'])){
+                $id = $_POST['id'];
+                $role = $_POST['role'];
+                if($role != ""){
+                    update_user($id,$role);
+                }
+            }
+            $listUser = loadall_users();
+            include "./user/list.php";
+            break;
         default:
             include "home.php";
             break;

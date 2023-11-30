@@ -41,6 +41,7 @@
                     </div>
 
                     <div class="act">
+                        <input type="hidden" name="idSto" value="<?=$variantOne['id_storage']?>">
                         <input type="submit" name="add" value="Mua Ngay">
                         <input type="hidden" name="proName" value="<?=$name?>">
                         <input type="hidden" name="proImg" value="<?=$img?>">
