@@ -6,6 +6,7 @@ include "../model/categories.php";
 include "../model/properties.php";
 include "../model/product.php";
 include "../model/user.php";
+include "../model/cart.php";
 
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
@@ -253,6 +254,39 @@ if (isset($_GET['act'])) {
             }
             $listUser = loadall_users();
             include "./user/list.php";
+            break;
+        case "donhang" :
+            if(isset($_SESSION['name']['id'])){
+                $idUser = $_POST['idUser'];
+            }else{
+                $idUser = 0;
+            }
+            $listBill = loadall_bill();
+            include "./bill/list.php";
+            break;
+        case "update_bill":
+            if(isset($_GET['id']) && ($_GET['id']>0)){
+                $Bill = loadone_bill($_GET['id']);
+            }
+            include "./bill/statusUpdate.php";
+            break;
+        case "update_status" :
+            if(isset($_POST['update'])&&($_POST['update'])){
+                $id = $_POST['id'];
+                $status = $_POST['status'];
+                upadate_bill($id,$status);
+
+            }
+            $listBill = loadall_bill();
+            include "./bill/list.php";
+            break;
+        case "view_bill" :
+            if(isset($_GET['id']) && ($_GET['id']>0)){
+                $Bill = load_bill_detail($_GET['id']);
+                $addres = loadone_address($_GET['id_user']);
+            }
+            $listStorage = loadall_storage();
+            include "./bill/viewBill.php";
             break;
         default:
             include "home.php";

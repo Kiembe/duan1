@@ -45,6 +45,10 @@ $img = "./uploads/" . $image;
                 }
                 ?>
             </div>
+            <div class="quanlity">
+                        <label for="quanlity">Số Lượng :</label>
+                        <input type="number" name="quality" min="1" max="50" placeholder="1">
+                    </div>
 
             <div class="act">
                 <input type="hidden" name="idPro" value="<?=$product['id']?>">

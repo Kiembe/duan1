@@ -26,4 +26,26 @@
         $sql = "UPDATE users SET role='".$role."' WHERE id=".$id;
         pdo_execute($sql); 
     }
+
+    function insert_address($idUser,$fullName,$phoneNumb,$address) {
+        $sql = "INSERT INTO addres(id_user,full_name,tel,address) VALUES ('$idUser','$fullName','$phoneNumb','$address')";
+        pdo_execute($sql);
+    }
+
+    function loadall_address() {
+        $sql = "SELECT * FROM addres order by id asc " ;
+        $listUser = pdo_query($sql);
+        return $listUser;
+    }
+
+    function loadone_address($idUser) {
+        $sql = "SELECT * FROM addres WHERE id_user=".$idUser;
+        $listUser = pdo_query_one($sql);
+        return $listUser;
+    }
+
+    function update_address($idUser,$fullName,$phoneNumb,$address) {
+        $sql = "UPDATE addres SET full_name='".$fullName."',tel='".$phoneNumb."',address='".$address."' WHERE id_user=".$idUser;
+        pdo_execute($sql);
+    }
 ?>

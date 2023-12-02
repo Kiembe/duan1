@@ -21,25 +21,29 @@
 
                     <div class="storage">
                         <p>Dung Lượng :</p>
-                    <?php
-                        $i=-1;
-                        foreach($listVariant as $var){
-                            extract($var);
-                            $variant = "index.php?act=variantDetail&idpro='".$product['id']."'&id=".$id;
-                            $i++;
-                            if($listStorage[$i]['id'] == $id_storage ){
-                                $capacity = $listStorage[$i]['capacity'];
-                                $unit = $listStorage[$i]['unit'];
-                                if($price > 0 && $quantity >0){
-                                    echo '
-                                        <a href="'.$variant.'">'.$capacity.' '.$unit.'</a>
-                                    ';
+                        <?php
+                            $i=-1;
+                            foreach($listVariant as $var){
+                                extract($var);
+                                $variant = "index.php?act=variantDetail&idpro='".$product['id']."'&id=".$id;
+                                $i++;
+                                if($listStorage[$i]['id'] == $id_storage ){
+                                    $capacity = $listStorage[$i]['capacity'];
+                                    $unit = $listStorage[$i]['unit'];
+                                    if($price > 0 && $quantity >0){
+                                        echo '
+                                            <a href="'.$variant.'">'.$capacity.' '.$unit.'</a>
+                                        ';
+                                    }
                                 }
                             }
-                        }
-                    ?>
+                        ?>
                     </div>
-
+                    <div class="quanlity">
+                        <label for="quanlity">Số Lượng :</label>
+                        <input type="number" name="quality" min="1" max="50" placeholder="1">
+                    </div>
+                    
                     <div class="act">
                         <input type="hidden" name="idSto" value="<?=$variantOne['id_storage']?>">
                         <input type="submit" name="add" value="Mua Ngay">
@@ -48,6 +52,13 @@
                         <input type="hidden" name="proPrice" value="<?=$variantOne['price']?>">
                         <input type="hidden" name="idProduct" value="<?=$product['id']?>">
                         <input type="hidden" name="idVariant" value="<?=$variantOne['id']?>">
+                        <?php
+                            if(isset($_SESSION['name']['name'])&&($_SESSION['name']['name'] != "")){
+                                echo '<input type="hidden" name="idUser" value="'.$_SESSION['name']['id'].'">';
+                            }else{
+                                '<input type="hidden" name="idUser" value="0">';
+                            }
+                        ?>
                     </div>
                 </div>
             </form>

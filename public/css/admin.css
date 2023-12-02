@@ -8,45 +8,45 @@ aside {
     height: 100vh;
     width: 18%;
     padding: 10px 0px;
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
     z-index: 1;
     left: 0;
     top: 0;
 }
 
-aside .logo h1{
+aside .logo h1 {
     font-size: 28px;
     font-weight: 800;
     text-align: center;
     margin: 20px;
 }
 
-aside .nav{
+aside .nav {
     padding: 10px;
 }
 
-aside .nav li{
+aside .nav li {
     padding: 20px 10px;
     font-size: 16px;
     display: flex;
     align-items: center;
     color: #32475C99;
-    
+
     transition: 0.5s;
 }
 
-.fa-chevron-down{
+.fa-chevron-down {
     font-size: 14px !important;
     text-align: end !important;
     flex: 1;
 }
 
-.properties{
+.properties {
     display: none;
 }
 
 
-.propertiesAct.active i:last-child{
+.propertiesAct.active i:last-child {
     transform: rotateX(180deg);
     text-align: end;
 }
@@ -55,27 +55,27 @@ aside .nav li{
     display: block;
 }
 
-.properties li{
+.properties li {
     margin-left: 15px;
 }
 
-aside .nav li:hover{
-    background-color: #cccccc1f;
+aside .nav li:hover {
+    background-color: #e7e7ff;
 }
 
-aside .nav li.active{
+/* aside .nav li.active{
     background-color: #e7e7ff;
     border-right: 5px solid #696cff ;
-}
+} */
 
-aside .nav li i{
+aside .nav li i {
     width: 40px;
     font-size: 20px;
     text-align: center;
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
-main{
+main {
     background-color: #f5f5f9;
     padding: 10px;
     width: 82%;
@@ -83,35 +83,36 @@ main{
     position: absolute;
     right: 0;
     z-index: 0;
-;
+
 }
 
 /*  */
-main .container{
+main .container {
     padding: 10px;
 }
 
-main .container h5{
+main .container h5 {
     font-size: 28px;
     color: #32475CDE;
     font-weight: 400;
     padding: 10px 0px;
 }
 
-main .container .board{
+main .container .board {
     background-color: #fff;
     width: 100%;
     padding: 0px 10px;
-    
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
 }
+
 main .container .board tr th,
-main .container .board tr td{
+main .container .board tr td {
     width: calc(100%/4);
 }
 
 
-main .container .board tr th{
+main .container .board tr th {
     font-size: 16px;
     font-weight: 550;
     color: #32475CDE;
@@ -119,7 +120,7 @@ main .container .board tr th{
     margin: 0;
 }
 
-main .container .board tr td{
+main .container .board tr td {
     padding: 10px;
     font-size: 16px;
     color: #32475C99;
@@ -129,82 +130,83 @@ main .container .board tr td{
     border-spacing: 0px;
 }
 
-main .container .board tr td a{
-        background: transparent;
+main .container .board tr td a {
+    background: transparent;
     padding: 5px 10px;
-    margin:5px;
+    margin: 5px;
     cursor: pointer;
 }
 
-main .container .board tr td a:first-child{
+main .container .board tr td a:first-child {
     color: #fff;
     background-color: rgba(0, 128, 0, 0.681);
 }
 
-main .container .board tr td a:last-child{
+main .container .board tr td a:last-child {
     color: #fff;
     background-color: rgba(255, 0, 0, 0.718);
 }
 
 
-main .container .action input{
+main .container .action input {
     background-color: #fff;
     border: 1px solid #32475c42;
     padding: 10px;
-    
+
     margin: 10px 0px;
     cursor: pointer;
 }
 
-main .container .action input:hover{
+main .container .action input:hover {
     background-color: #32475c42;
 }
+
 /*  */
 main .container .board div {
     padding: 10px;
-} 
+}
 
-main .container .board div label{
+main .container .board div label {
     font-size: 16px;
     color: #32475CDE;
 }
 
 main .container .board div input[type="text"],
-main .container .board div input[type="number"]{
+main .container .board div input[type="number"] {
     border: 1px solid #32475CDE;
     outline: none;
     padding: 15px 10px;
-    
+
     margin: 10px 0px;
     margin-bottom: 0;
     width: 300px;
     color: #32475CDE;
 }
 
-main .container .board div input[type="file"]{
+main .container .board div input[type="file"] {
     background-color: #fff;
     border: 1px solid #32475CDE;
     padding: 10px;
-    
+
     cursor: pointer;
     margin: 10px 0px;
 }
 
-main .container .board div textarea{
+main .container .board div textarea {
     padding: 10px;
     border: 1px solid #32475CDE;
     margin: 10px 0px;
-    
+
     font-style: 16px;
     color: #32475CDE;
 }
 
 
-main .container .board .submit input{
+main .container .board .submit input {
     background-color: #fff;
     border: 1px solid #32475CDE;
     padding: 10px;
-    
+
     cursor: pointer;
     margin: 10px;
     margin-top: 0;
@@ -218,7 +220,7 @@ main .container>p {
 
 /*  */
 
-main .container .board .type{
+main .container .board .type {
     padding: 10px;
 }
 
@@ -227,52 +229,52 @@ main .container .proIMG {
     align-items: center;
 }
 
-main .container .proIMG img{
-        border: 1px solid #32475CDE;
+main .container .proIMG img {
+    border: 1px solid #32475CDE;
 }
 
-main .container .board .type select{
+main .container .board .type select {
     border: 1px solid #32475CDE;
     padding: 5px;
-        cursor: pointer;
+    cursor: pointer;
 }
 
-main .container .board select{
+main .container .board select {
     border: 1px solid #32475CDE;
     color: #32475CDE;
     padding: 5px;
-        cursor: pointer;
+    cursor: pointer;
 }
 
-main .container .board .type option{
+main .container .board .type option {
     border: 1px solid #32475CDE;
     padding: 5px;
-        cursor: pointer;
+    cursor: pointer;
 }
 
-main .container .board .type input{
+main .container .board .type input {
     background-color: #fff;
     border: 1px solid #32475CDE;
     padding: 5px;
-        cursor: pointer;
+    cursor: pointer;
 }
 
-main .container .board_pro{
+main .container .board_pro {
     width: 100%;
 }
 
 main .container .board_pro tr th:first-child,
-main .container .board_pro tr td:first-child{
+main .container .board_pro tr td:first-child {
     width: 25%;
 }
 
 main .container .board_pro tr th,
-main .container .board_pro tr td{
+main .container .board_pro tr td {
     width: calc(75%/6);
 }
 
 
-main .container .board_pro tr th{
+main .container .board_pro tr th {
     font-size: 16px;
     font-weight: 550;
     color: #32475CDE;
@@ -280,12 +282,12 @@ main .container .board_pro tr th{
     margin: 0;
 }
 
-main .container .board_pro tr td .more{
+main .container .board_pro tr td .more {
     background-color: #696cff !important;
 }
 
 
-main .container .board_pro tr td{
+main .container .board_pro tr td {
     font-size: 16px;
     color: #32475C99;
     text-align: center;
@@ -294,82 +296,145 @@ main .container .board_pro tr td{
     border-spacing: 0px;
 }
 
-main .container .board_pro tr .des{
+main .container .board_pro tr .des {
     max-width: 50px;
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-main .container .board_pro tr td img{
+main .container .board_pro tr td img {
     width: 50px;
     padding: 5px;
 }
 
-main .container .board_pro tr td input[type=button]{
+main .container .board_pro tr td input[type=button] {
     border: 1px solid #32475CDE;
-        background: transparent;
+    background: transparent;
     padding: 5px 10px;
-    margin:10px;
+    margin: 10px;
     cursor: pointer;
 }
 
-main .container .board_pro tr td input[type=button]:hover{
+main .container .board_pro tr td input[type=button]:hover {
     background-color: #32475c42;
 }
 
 main .container .board_sto tr th,
-main .container .board_sto tr td{
+main .container .board_sto tr td {
     width: calc(100%/4) !important;
 }
 
 input[type="text"]::placeholder,
-input[type="number"]::placeholder{
+input[type="number"]::placeholder {
     color: #32475c48;
 }
 
-.proName>p{
-    font-size: 20px ;
+.proName>p {
+    font-size: 20px;
     padding: 10px;
     color: #32475CDE;
 }
 
 
 .capacity,
-.color{
+.color {
     width: 100%;
     margin-bottom: 30px;
 }
 
 .capacity tr td input[type="number"],
-.color tr td input[type="number"]{
+.color tr td input[type="number"] {
     padding: 10px;
     outline: none;
     border: 1px solid #32475CDE;
 }
 
 main .container .board_user tr th,
-main .container .board_user tr td{
+main .container .board_user tr td {
     width: calc(100%/7) !important;
 }
 
-main .container .board_user tr td a{
+main .container .board_user tr td a {
     background-color: rgba(0, 128, 0, 0.681) !important;
 }
 
 main .container .board_user p {
-    color: #32475CDE ;  
+    color: #32475CDE;
 }
 
-main .container .board_user p span{
+main .container .board_user p span {
     font-weight: bold;
 }
 
-main .container .board_user div select{
+main .container .board_user div select {
     margin-top: 10px;
     outline: none;
 }
 
-main .container .board_user .submit input{
+main .container .board_user .submit input {
     margin-left: 0;
+}
+
+main .container .board_bill tr th,
+main .container .board_bill tr td {
+    width: calc(100%/6) !important;
+}
+
+main .container .board_bill tr td a:last-child {
+    background-color: #32475CDE;
+}
+
+main .container .board_bill p {
+    color: #32475CDE;
+    padding: 10px;
+}
+
+main .container .board_bill select {
+    margin: 10px 0px;
+    outline: none;
+    cursor: pointer;
+}
+
+main .container .board_bill_view table {
+    width: 100%;
+}
+
+main .container .board_bill_view tr th,
+main .container .board_bill_view tr td {
+    width: calc(100%/7) !important;
+}
+
+main .container .board_bill_view table .totalPrice td {
+    font-weight: bold;
+    color: #32475CDE;
+}
+
+.board_bill_view.address {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+
+.board_bill_view .address p:first-child {
+    font-size: 18px;
+    color: #32475CDE;
+}
+
+
+.board_bill_view .address p {
+    color: #32475C99;
+    padding: 5px;
+}
+
+.back_bill{
+    margin-top: 30px;   
+    cursor: pointer;
+}
+
+.back_bill a{
+    padding: 10px;
+    border: 1px solid #32475CDE;
 }

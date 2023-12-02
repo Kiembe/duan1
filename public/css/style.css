@@ -6,6 +6,7 @@
 
 header{
     box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+    z-index: 10;
 }
 
 header .head{
@@ -152,11 +153,11 @@ nav ul li:hover p{
   backdrop-filter: blur(5px);
   overflow: hidden;
   transition: all 0.5s;
-  z-index: 1;
+  z-index: 2;
 }
 
 .search.active{
-  height: calc(100vh - 70px);
+  height: calc(100vh - 76px);
 }
 
 .search .container{
@@ -478,9 +479,24 @@ nav ul li:hover p{
     outline: none;
   }
 
-  main .product .right .act{
-    margin-top: 50px;
+  
+
+  main .product .right .quanlity{
+    margin: 15px 0px;
   }
+
+  main .product .right .quanlity label{
+    color: #32475CDE;
+  }
+
+  main .product .right .quanlity input{
+    padding: 5px;
+    outline: none;
+    border: 1px solid #32475CDE;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+
   /* main .product .right .act a{
     padding: 15px;
     border: 1px solid #32475CDE;
@@ -664,6 +680,7 @@ nav ul li:hover p{
   width: 90%;
   padding: 0px 10px;
   box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+  margin-bottom: 100px;
 }
  .board tr th,
  .board tr td{
@@ -722,6 +739,14 @@ nav ul li:hover p{
   margin: 10px;
 }
 
+.cart .action input{
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #32475CDE;
+  margin: 10px;
+  background-color: transparent;
+  cursor: pointer;
+}
 .cart .action{
   margin-top: 50px;
 }
@@ -730,4 +755,250 @@ nav ul li:hover p{
   color: #32475CDE;
   font-weight: bold;
   text-decoration: underline;
+}
+
+
+.cart .totalPrice td{
+  color: #32475CDE;
+  font-weight: bold;
+}
+
+.bill h5{
+  font-size: 28px;
+  color: #32475CDE;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.bill{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bill .board table{
+  width: 100%;
+}
+
+.bill .address {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.bill .address p:first-child{
+  font-size: 18px;
+  color: #32475CDE;
+}
+
+.bill .address p{
+  color: #32475C99;
+  padding: 5px;
+}
+
+.bill .address a{
+  border: 1px solid #32475CDE;
+  padding: 10px;
+  max-height: fit-content;
+  color: #32475CDE;
+  margin: 10px;
+}
+
+.bill .address div:last-child{
+  display: flex;
+  align-items: center;
+}
+
+.pay{
+  color: #32475C99;
+  padding: 10px;
+  margin-top: 30px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.pay p {
+  color: #32475CDE;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.pay input[type="radio"]{
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 1px solid #32475C99;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.pay input[type="radio"]:checked{
+  background: #32475C99;
+}
+
+.pay div{
+  padding: 5px 10px;
+}
+
+.bill .act {
+  padding: 10px;
+  display: flex;
+  align-items: end;
+}
+
+.bill .act input{
+  padding: 10px;
+  color: #fff;
+  background-color: #32475CDE;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.bill .totalPrice td{
+  color: #32475CDE;
+  font-weight: bold;
+}
+
+aside {
+  position: absolute;
+  height: calc(100vh - 64px);
+  width: 18%;
+  padding: 10px 0px;
+  box-shadow: 0px 10px 5px rgba(0,0,0,0.15);
+  left: 0;
+  top: 64px;
+  z-index: 1;
+}
+
+aside .logo h1{
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+  margin: 20px;
+}
+
+aside .nav{
+  padding: 10px;
+}
+
+aside .nav li{
+  padding: 20px 10px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  color: #32475C99;
+  
+  transition: 0.5s;
+}
+
+.fa-chevron-down{
+  font-size: 14px !important;
+  text-align: end !important;
+  flex: 1;
+}
+
+.properties{
+  display: none;
+}
+
+
+.propertiesAct.active i:last-child{
+  transform: rotateX(180deg);
+  text-align: end;
+}
+
+.properties.active {
+  display: block;
+}
+
+.properties li{
+  margin-left: 15px;
+}
+
+aside .nav li:hover{
+  background-color: #e7e7ff;
+}
+
+aside .nav li i{
+  width: 40px;
+  font-size: 20px;
+  text-align: center;
+  margin-right: 10px; 
+}
+
+.user_main{
+  background-color: #f5f5f9;
+  padding: 10px;
+  width: 82%;
+  min-height: calc(100vh - 64px);
+  position: absolute;
+  right: 0;
+  top: 24px;
+  z-index: 0;
+
+}
+.updateInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.updateInfo h5{
+  color: #32475CDE;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.updateInfo .board{
+  display: flex;
+  width: fit-content;
+  padding: 0 50px;
+}
+
+.updateInfo form{
+  padding: 10px;
+  /* width: fit-content; */
+  margin: 0 auto;
+}
+
+.updateInfo label{
+  color: #32475CDE;
+}
+
+.updateInfo .board div{
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.updateInfo div input{
+  float: right;
+  border: 1px solid #32475CDE;
+  outline: none;
+  padding: 10px;
+  margin-left: 30px;
+}
+
+.updateInfo .board .act {
+  display: block;
+  padding-bottom: 20px;  
+}
+
+.updateInfo .board .act input{
+  padding: 10px;
+  background: #32475CDE;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
 }
