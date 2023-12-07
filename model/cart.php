@@ -31,8 +31,8 @@
         return $pro;
     }
 
-    function insert_bill($idUser,$name_user,$bill_code,$pay_method,$time) {
-        $sql = "INSERT INTO bill(id_user,name_user,bill_code,pay_method,time) VALUES ('$idUser','$name_user','$bill_code','$pay_method','$time') ";
+    function insert_bill($idUser,$name_user,$bill_code,$pay_method,$total) {
+        $sql = "INSERT INTO bill(id_user,name_user,bill_code,pay_method,total) VALUES ('$idUser','$name_user','$bill_code','$pay_method','$total') ";
         pdo_execute($sql);
     }
 
@@ -49,10 +49,11 @@
     }
 
     function loadone_bill_user($id_user) {
-        $sql = "SELECT * FROM bill WHERE id_user=".$id_user;
+        $sql = "SELECT * FROM bill WHERE id_user='".$id_user."' ORDER BY id DESC ";
         $listBill = pdo_query($sql);
         return $listBill;
     }
+
 
     function upadate_bill($id,$status){
         $sql = "UPDATE bill SET bill_status='".$status."' WHERE id=".$id;

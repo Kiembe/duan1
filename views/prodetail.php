@@ -54,6 +54,8 @@ $img = "./uploads/" . $image;
                 <input type="hidden" name="idPro" value="<?=$product['id']?>">
                 <a href="" class="buyNow">Mua Ngay</a>
             </div>
+
+            <p class="freeShip"><i class="fa-solid fa-truck-fast"></i> Miễn Phí Vận Chuyển</p>
         </div>
     </div>
 
@@ -62,51 +64,7 @@ $img = "./uploads/" . $image;
             <div class="description">
                 <h5>Chi Tiết Sản Phẩm</h5>
                 <div class="content">
-                    Kích thước màn hình
-
-                    6.1 inches
-                    Công nghệ màn hình
-
-                    Super Retina XDR OLED
-                    Camera sau
-
-                    Camera chính: 48MP, 24 mm, ƒ/1.78,
-                    Camera góc siêu rộng: 12 MP, 13 mm, ƒ/2.2
-                    Camera Tele 3x: 12 MP, 77 mm, ƒ/2.8
-                    Camera Tele 2x: 12 MP, 48 mm, ƒ/1.78
-                    Camera trước
-
-                    12MP, ƒ/1.9
-                    Chipset
-
-                    A17 Pro
-                    Dung lượng RAM
-
-                    8 GB
-                    Bộ nhớ trong
-
-                    512 GB
-                    Pin
-
-                    3274 mAh
-                    Thẻ SIM
-
-                    2 SIM (nano‑SIM và eSIM)
-                    Hệ điều hành
-
-                    iOS 17
-                    Độ phân giải màn hình
-
-                    2556 x 1179 pixels
-                    Tính năng màn hình
-
-                    Tốc độ làm mới 120Hz
-                    460 ppi
-                    HDR
-                    True Tone
-                    Dải màu rộng (P3)
-                    Haptic Touch
-                    Tỷ lệ tương phản 2.000.000:1
+                <?=$product['description']?>
                 </div>
             </div>
 
@@ -130,55 +88,22 @@ $img = "./uploads/" . $image;
         <div class="right">
             <div class="samePro">
                 <h5>Sản Phẩm Tương Tự</h5>
-                <a href="" class="product">
-                    <img src="./public/img/ip15.png">
-                    <div class="detail">
-                        <p class="name">iPhone 15 Pro</p>
-                        <p class="price">30.000.000đ</p>
-                    </div>
-                </a>
-                <a href="" class="product">
-                    <img src="./public/img/ip15.png">
-                    <div class="detail">
-                        <p class="name">iPhone 15 Pro</p>
-                        <p class="price">30.000.000đ</p>
-                    </div>
-                </a>
-                <a href="" class="product">
-                    <img src="./public/img/ip15.png">
-                    <div class="detail">
-                        <p class="name">iPhone 15 Pro</p>
-                        <p class="price">30.000.000đ</p>
-                    </div>
-                </a>
-                <a href="" class="product">
-                    <img src="./public/img/ip15.png">
-                    <div class="detail">
-                        <p class="name">iPhone 15 Pro</p>
-                        <p class="price">30.000.000đ</p>
-                    </div>
-                </a>
-                <a href="" class="product">
-                    <img src="./public/img/ip15.png">
-                    <div class="detail">
-                        <p class="name">iPhone 15 Pro</p>
-                        <p class="price">30.000.000đ</p>
-                    </div>
-                </a>
-                <a href="" class="product">
-                    <img src="./public/img/ip15.png">
-                    <div class="detail">
-                        <p class="name">iPhone 15 Pro</p>
-                        <p class="price">30.000.000đ</p>
-                    </div>
-                </a>
-                <a href="" class="product">
-                    <img src="./public/img/ip15.png">
-                    <div class="detail">
-                        <p class="name">iPhone 15 Pro</p>
-                        <p class="price">30.000.000đ</p>
-                    </div>
-                </a>
+                <?php 
+                    $list_same = loadhome_products_byId($id_cat);
+                    foreach($list_same as $pro){
+                        extract($pro);
+                        echo '
+                            <a href="" class="product">
+                                <img src="./uploads/'.$image.'">
+                                <div class="detail">
+                                    <p class="name">'.$name.'</p>
+                                </div>
+                            </a>
+                        ';
+                    }
+                ?>
+                
+                
 
             </div>
         </div>

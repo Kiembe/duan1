@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../public/css/admin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="../public/img/icon-admin.png">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
@@ -24,7 +26,7 @@
             </div>
             <ul class="nav">
                 <a href="index.php?act=trangchu">
-                    <li><i class="fa-solid fa-house-chimney"></i>Trang Chủ</li>
+                    <li><i class="fa-solid fa-chart-line"></i>Tổng Quan</li>
                 </a>
                 <a href="index.php?act=danhmuc">
                     <li><i class="fa-solid fa-list-check"></i>Danh Mục</li>
@@ -43,9 +45,6 @@
                 </a>
                 <a href="index.php?act=binhluan">
                     <li><i class="fa-solid fa-comments"></i>Bình Luận</li>
-                </a>
-                <a href="index.php?act=thongke">
-                    <li><i class="fa-solid fa-money-bill-trend-up"></i>Thống Kê</li>
                 </a>
 
                 <a href="../">

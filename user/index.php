@@ -4,8 +4,8 @@
     if (isset($_GET['act'])) {
         $act = $_GET['act'];
         switch ($act) {
-            case 'donhang' :
-                echo 0;
+            case 'update_pass' :
+                include "changePass.php";
                 break;
             default :
                 include "info.php";

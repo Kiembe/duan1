@@ -16,7 +16,7 @@
 ?>
 <main>
     <div class="container">
-        <h5>Sửa Sản Phẩm</h5>
+        <h5>Thêm Biến Thể</h5>
         <form action="index.php?act=add_variant" method="post" class="board boardVariant" enctype="multipart/form-data">
             <div class="cat">
                     <select name="id_cat" >
@@ -62,7 +62,6 @@
                                 </td>
                             </tr>
                         ';
-                        echo $id;
                     }
                 ?>
             </table>

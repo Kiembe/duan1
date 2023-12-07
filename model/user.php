@@ -22,6 +22,16 @@
         return $user;
     }
 
+    function update_user_info($id,$name,$email,$tel) {
+        $sql = "UPDATE users SET name='".$name."',email='".$email."',tel='".$tel."' WHERE id=".$id;
+        pdo_execute($sql); 
+    }
+
+    function update_user_pass($id,$password) {
+        $sql = "UPDATE users SET password='".$password."' WHERE id=".$id;
+        pdo_execute($sql); 
+    }
+
     function update_user($id,$role) {
         $sql = "UPDATE users SET role='".$role."' WHERE id=".$id;
         pdo_execute($sql); 

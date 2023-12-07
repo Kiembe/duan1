@@ -2,11 +2,12 @@
         <main>
             <div class="container">
                 <h5>Danh Mục Sản Phẩm</h5>
-                <table class="board">
+                <table class="board board_cat">
                     <tr>
                         <th>STT</th>
                         <th>Mã Danh Mục</th>
                         <th>Tên Danh Mục</th>
+                        <th>Ảnh Danh Mục</th>
                         <th>Thao Tác</th>
                     </tr>
                     <?php 
@@ -22,6 +23,7 @@
                                     <td>'.$i.'</td>
                                     <td>'.$id.'</td>
                                     <td>'.$name.'</td>
+                                    <td><img src="../uploads/'.$image.' "width="50px"></td>
                                     <td><a href="'.$update.'"><i class="fa-regular fa-pen-to-square"></i></a><a href="'.$delete.'"><i class="fa-regular fa-trash-can"></i></a></td>
                                 </tr>
                                 ';

@@ -14,7 +14,11 @@ if (isset($_GET['act'])) {
         case 'them_danh_muc' :
             if(isset($_POST['add'])&&($_POST['add'])){
                 $catName = $_POST['nameCat'];
-                insert_categories($catName);
+                $image= $_FILES['catIMG']['name'];
+                $target_dir = "../uploads/";
+                $target_file = $target_dir . basename($_FILES["catIMG"]["name"]);
+                move_uploaded_file($_FILES["catIMG"]["tmp_name"],$target_file);
+                insert_categories($catName,$image);
                 $log = "Thêm thành công";
             }
             include "categories/add.php";
@@ -40,7 +44,15 @@ if (isset($_GET['act'])) {
             if(isset($_POST['update'])&&($_POST['update'])){
                 $catName = $_POST['nameCat'];
                 $id=$_POST['id'];
-                upadate_categories($id,$catName);
+                $image= $_FILES['catIMG']['name'];
+                $target_dir = "../uploads/";
+                $target_file = $target_dir . basename($_FILES["catIMG"]["name"]);
+                move_uploaded_file($_FILES["catIMG"]["tmp_name"],$target_file);
+                if($image == ""){
+                    upadate_categories_notIMG($id,$catName);
+                }else{
+                    upadate_categories($id,$catName,$image);
+                }
                 $log = "Cập nhật thành công";
             }
             $listCategories = loadall_categories();

@@ -325,16 +325,16 @@ nav ul li:hover p{
 
   .iPhone,
   .iPad,
-  .macBook,
-  .watch{
+  .Macbook,
+  .Watch{
     width: 90%;
     margin: 50px auto;
   }
 
   .iPhone .head ,
   .iPad .head ,
-  .macBook .head ,
-  .watch .head {
+  .Macbook .head ,
+  .Watch .head {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -344,23 +344,23 @@ nav ul li:hover p{
 
   .iPhone .head h5,
   .iPad .head h5,
-  .macBook .head h5,
-  .watch .head h5{
+  .Macbook .head h5,
+  .Watch .head h5{
     font-size: 30px;
     color: #6E6E73;
   }
   .iPhone .head a,
   .iPad .head a,
-  .macBook .head a,
-  .watch .head a{
+  .Macbook .head a,
+  .Watch .head a{
     font-size: 16px;
     color: #6E6E73;
   }
 
   .iPhone .head i,
   .iPad .head i,
-  .macBook .head i,
-  .watch .head i{
+  .Macbook .head i,
+  .Watch .head i{
     font-size: 16px;
     color: #6E6E73;
     margin-left: 5px;
@@ -368,15 +368,15 @@ nav ul li:hover p{
 
   .iPhone .products,
   .iPad .products,
-  .macBook .products,
-  .watch .products {
+  .Macbook .products,
+  .Watch .products {
     display: flex;
   }
 
   .iPhone .products .product ,
   .iPad .products .product ,
-  .macBook .products .product ,
-  .watch .products .product {
+  .Macbook .products .product ,
+  .Watch .products .product {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -388,25 +388,26 @@ nav ul li:hover p{
 
   .iPhone .products .product:hover ,
   .iPad .products .product:hover ,
-  .macBook .products .product:hover ,
-  .watch .products .product:hover{
+  .Macbook .products .product:hover ,
+  .Watch .products .product:hover{
     transform: scale(1.2);
   }
 
   .iPhone .products .product img,
   .iPad .products .product img,
-  .macBook .products .product img,
-  .watch .products .product img{
-    height: 150px;
+  .Macbook .products .product img,
+  .Watch .products .product img{
+    width:150px;
     transition: 0.5s;
   }
 
   .iPhone .products .product p,
   .iPad .products .product p,
-  .macBook .products .product p,
-  .watch .products .product p{
+  .Macbook .products .product p,
+  .Watch .products .product p{
     font-size: 14px;
     color: #32475CDE;
+    margin-top: 10px;
   }
 
   main{
@@ -426,7 +427,8 @@ nav ul li:hover p{
   }
 
   main .product .left img{
-    width: 400px;
+    height: 400px;
+    cursor: zoom-in;
   }
 
   main .product .right{
@@ -436,6 +438,7 @@ nav ul li:hover p{
     align-items: start;
     padding: 10px;
     gap: 20px;
+    padding-left: 50px;
   }
 
   main .product .right .name{
@@ -510,6 +513,17 @@ nav ul li:hover p{
     padding: 10px;
   }
 
+  main .product .right .freeShip{
+    color: #32475CDE;
+    font-style: italic;
+    margin: 10px 0px;
+    font-size: 14px;
+
+  }
+  main .product .right .freeShip i{
+    margin-right: 10px;
+  }
+
 
   main .detail{
     padding: 50px;
@@ -535,6 +549,19 @@ nav ul li:hover p{
     font-size: 16px;
     color: #6E6E73;
     text-align: justify;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main .detail .left .description .content table{
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+  }
+  main .detail .left .description .content table tr td{
+    border: 1px solid #32475C99;
     padding: 10px;
   }
 
@@ -614,7 +641,7 @@ nav ul li:hover p{
 
 
   main .detail .right .samePro .product img{
-    height: 70px;
+    width: 70px;
     object-fit: cover;
   }
 
@@ -947,6 +974,109 @@ aside .nav li i{
   z-index: 0;
 
 }
+
+.user_main h5{
+  font-size: 28px;
+  font-weight: normal;
+  color: #32475CDE;
+  padding: 10px;
+}
+
+.user_main p{
+  color: #32475CDE;
+  padding: 10px;
+}
+
+.user_main .board {
+  padding: 10px;
+  margin: 10px;
+  width: 95%; 
+}
+
+.user_main .board table{
+  width: 100%;
+}
+
+.user_main .back_bill{
+  margin-top: 30px; 
+}
+
+.user_main .back_bill a{ 
+  border: 1px solid #32475CDE;
+  padding: 10px;
+  margin: 10px;
+
+}
+.user_main .board_bill tr th, 
+.user_main .board_bill tr td {
+  width: calc(90% / 5) !important;
+}
+
+.user_main .board_bill tr th:last-child, 
+.user_main .board_bill tr td:last-child {
+  width: 5%;
+}
+
+.user_main .board_bill tr th:nth-last-child(1), 
+.user_main .board_bill tr td:nth-last-child(1) {
+  width: 5%;
+}
+
+.user_main .board_bill tr a {
+  padding: 0;
+}
+
+.user_main .board_bill tr a i{
+  background: #32475CDE;
+}
+
+.user_main .board div{
+  display: flex;
+  flex-direction: column;
+}
+
+.user_main .board label{
+  padding: 10px;
+  color: #32475C99;
+}
+
+.user_main .board input{
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #32475C99;
+  margin: 10px;
+  font-size: 16px;
+  color: #32475C99;
+}
+
+.user_main .board input:focus{
+  color: #32475CDE;
+}
+
+.user_main .board input[type="submit"]{
+  border: none;
+  color: #fff;
+  background-color: #32475CDE;
+  padding:  10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.user_main .board_pass div{
+  position: relative;
+}
+
+.user_main .board_pass div i{
+  color: #32475C99;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+}
+
+/*  */
+
 .updateInfo{
   display: flex;
   flex-direction: column;
@@ -1001,4 +1131,72 @@ aside .nav li i{
   color: #fff;
   outline: none;
   cursor: pointer;
+}
+
+.titleList{
+  font-size: 28px;
+  color: #32475CDE;
+  padding: 30px;
+  text-align: center;
+}
+
+.listPro {
+  display: flex;
+  column-gap:calc(10% / 4) ;
+  row-gap: 30px;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.main_list{
+  display: flex;
+}
+
+main .container{
+  width: 90%;
+  margin: 0 auto;
+}
+
+main .container .listPro .pro img {
+  width: 200px;
+}
+
+main .container .listPro a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: all 0.5s;
+  width: calc(90%/5);
+  justify-content: space-between;
+}
+
+main .container .listPro a:hover{
+  transform: scale(1.1)
+}
+
+main .container .listPro .del{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;   
+  align-items: center;
+  margin-top: 15px;
+}
+
+main .container .listPro p{
+  font-size: 16px;
+  color: #32475CDE;
+}
+
+main .container .listPro button{
+  padding: 5px 10px;
+  background-color: #32475CDE;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  
 }

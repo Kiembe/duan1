@@ -27,19 +27,29 @@
                                 }
                                 switch($bill_status){
                                     case "0" :
-                                        $status = "Đang Xử Lý";
+                                        $status = "<td>Đang Xử Lý</td>";
                                         break;
                                     case "1" :
-                                        $status = "Đã Xác Nhận";
+                                        $status = "<td>Đã Xác Nhận</td>";
                                         break;
                                     case "2" :
-                                        $status = "Đang Vận Chuyển";
+                                        $status = "<td>Đang Vận Chuyển</td>";
                                         break;
                                     case "3" :
-                                        $status = "Hoàn Thành";
+                                        $status = '<td style="color:#008000">Hoàn Thành</td>';
+                                        break;
+                                    case "4" :
+                                        $status = '<td style="color:#fd2323f2">Đã Hủy</td>';
                                         break;
                                 }
-                                $update = "index.php?act=update_bill&id=".$id;
+                                if($bill_status == 0 || $bill_status == 1 || $bill_status == 2 ){
+                                    $update = "index.php?act=update_bill&id=".$id;
+                                    $color = "";
+                                }else{
+                                    $color = "#32475c3a";
+                                    $update = "";
+                                }
+                                
                                 $view = "index.php?act=view_bill&id_user=".$id_user."&id=".$id;
                                 echo '
                                 <tr>
@@ -47,8 +57,8 @@
                                     <td>'.$time.'</td>
                                     <td>'.$name_user.'</td>
                                     <td>'.$pay.'</td>
-                                    <td>'.$status.'</td>
-                                    <td><a href="'.$update.'"><i class="fa-regular fa-pen-to-square"></i></a><a href="'.$view.'"><i class="fa-solid fa-eye"></i></a></td>
+                                    '.$status.'
+                                    <td><a href="'.$update.'" style="background:'.$color.'"><i class="fa-regular fa-pen-to-square" ></i></a><a href="'.$view.'"><i class="fa-solid fa-eye"></i></a></td>
                                 </tr>
                                 ';
                             }

@@ -108,6 +108,7 @@
                         <input type="hidden" name="">
                         <input type="submit" name="add" value="Đặt Hàng">
                         <input type="hidden" name="nameUser" value="<?=$full_name?>">
+                        <input type="hidden" name="total" value="<?=$total?>">
 
                         <?php
                             if(isset($_SESSION['name']['name'])&&($_SESSION['name']['name'] != "")){

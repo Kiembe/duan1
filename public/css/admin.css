@@ -139,7 +139,7 @@ main .container .board tr td a {
 
 main .container .board tr td a:first-child {
     color: #fff;
-    background-color: rgba(0, 128, 0, 0.681);
+    background-color: #008000ae;
 }
 
 main .container .board tr td a:last-child {
@@ -229,6 +229,11 @@ main .container .proIMG {
     align-items: center;
 }
 
+main .container .proIMG div{
+    padding: 0;
+    padding-right: 10px;
+}
+
 main .container .proIMG img {
     border: 1px solid #32475CDE;
 }
@@ -258,6 +263,12 @@ main .container .board .type input {
     padding: 5px;
     cursor: pointer;
 }
+
+main .container .board_cat tr th,
+main .container .board_cat tr td {
+    width: calc(100%/5) !important;
+}
+
 
 main .container .board_pro {
     width: 100%;
@@ -437,4 +448,62 @@ main .container .board_bill_view table .totalPrice td {
 .back_bill a{
     padding: 10px;
     border: 1px solid #32475CDE;
+}
+
+.statics {
+    display: flex !important;
+    flex-direction: row ;   
+    overflow: hidden; 
+}
+
+.statics canvas{
+    width: 75% !important;
+    cursor: pointer;
+}
+
+.statics .list_sta{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 50px;
+}
+
+.statics .list_sta>p{
+    font-size: 20px;
+    color: #32475CDE;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.statics .list_sta div p{
+    margin: 5px 0px;
+}
+
+.statics .list_sta .money{
+    display: flex;
+    background-color: rgba(12, 180, 12, 0.681);
+    color: #fff;
+    font-weight: bold;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.statics .list_sta i{
+    font-size: 30px;
+    padding-right: 10px;
+}
+
+.statics .list_sta .bill{
+    display: flex;
+    background-color: #32475CDE;
+    color: #fff;
+    font-weight: bold;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.statics .list_sta i{
+    font-size: 30px;
+    padding-right: 10px;
 }

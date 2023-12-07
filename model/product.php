@@ -20,6 +20,18 @@ function loadall_products($id_cat=0) {
     return $listproducts;
 }
 
+function loadall_products_byId($id_cat) {
+    $sql = "SELECT * FROM products WHERE id_cat ='".$id_cat."' order by id desc";
+    $listproducts = pdo_query($sql);
+    return $listproducts;
+}
+
+function loadhome_products_byId($id_cat) {
+    $sql = "SELECT * FROM products WHERE id_cat ='".$id_cat."' order by id desc limit 0,6";
+    $listproducts = pdo_query($sql);
+    return $listproducts;
+}
+
 function loadall_products_home() {
     $sql = "SELECT * FROM products WHERE 1 ORDER BY id DESC LIMIT 0,7";
     $listproducts = pdo_query($sql);

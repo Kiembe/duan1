@@ -2,12 +2,12 @@
     session_start();   
     include "./model/pdo.php";
     include "./model/product.php";
+    include "./model/categories.php";
     include "./model/properties.php";
     include "./model/user.php";
     include "./model/cart.php";
 
     include "./header.php";
-
     if (isset($_GET['act'])) {
         $act = $_GET['act'];
         switch ($act) {
@@ -71,7 +71,71 @@
                 $_SESSION['name']['id'] = 0;
                 header('Location: index.php');
             case "user_info":
+                $info = loadone_user($_SESSION['name']['id']);
                 include "./user/index.php";
+                break;
+            case "update_info" :
+                if(isset($_POST['update'])&&($_POST['update'])){
+                    $id = $_POST['id'];
+                    $name = $_POST['name'];
+                    $email = $_POST['email'];
+                    $tel = $_POST['tel'];
+                    
+                    update_user_info($id,$name,$email,$tel);
+                    $log = 'Cập Nhật Thông Tin Thành Công';
+                }
+                $info = loadone_user($_SESSION['name']['id']);
+                include "./user/index.php";
+                break;
+            case "update_pass":
+                $info = loadone_user($_SESSION['name']['id']);
+                include "./user/changePass.php";
+                break;
+            case "change_pass" :
+                $info = loadone_user($_SESSION['name']['id']);
+                if(isset($_POST['update'])&&($_POST['update'])){
+                    $id = $_POST['id'];
+                    $this_pass = $_POST['pass'];
+                    $new_pass = $_POST['newPass'];
+                    $confim_pass = $_POST['confimPass'];
+                    extract($info);
+                    if($this_pass != $password){
+                        $log = 'Sai Mật Khẩu Hiện Tại';
+                        $info = loadone_user($_SESSION['name']['id']);
+                        include "./user/changePass.php";
+                    }
+                    if($confim_pass != $new_pass){
+                        $log = 'Mật Khẩu Xác Nhận Không Trùng Khớp';
+                        $info = loadone_user($_SESSION['name']['id']);
+                        include "./user/changePass.php";
+                    }
+                    if($this_pass == $password && $confim_pass == $new_pass){
+                        update_user_pass($id,$new_pass);
+                        $log = 'Cập Nhật Thành Công';
+                    }
+                }
+                $info = loadone_user($_SESSION['name']['id']);
+                include "./user/changePass.php";
+                break;
+            case "check_my_bill" :
+                $listBill = loadone_bill_user($_SESSION['name']['id']);
+                include "./user/listBill.php";
+                break;
+            case "bill_detail" :{
+                if(isset($_GET['id'])&& $_GET['id']){
+                    $Bill = load_bill_detail($_GET['id']);
+                }
+                $listStorage = loadall_storage();
+                include "./user/viewBill.php";
+                break;
+            }
+            case "cancel_bill" :
+                if(isset($_GET['id'])&& $_GET['id']){
+                    $status = 4;
+                    upadate_bill($_GET['id'],$status);
+                }
+                $listBill = loadone_bill_user($_SESSION['name']['id']);
+                include "./user/listBill.php";
                 break;
                 //
             case "add_cart" :
@@ -221,10 +285,9 @@
                     
                     $pay_method = $_POST['pay'];
                     $name_user = $_POST['nameUser'];
+                    $total = $_POST['total'];
                     $bill_code = "#".rand(1000,9999);
-                    date_default_timezone_set('Asia/Ho_Chi_Minh');
-                    $time = date("H:i:s d-m-Y");
-                    insert_bill($idUser,$name_user,$bill_code,$pay_method,$time);
+                    insert_bill($idUser,$name_user,$bill_code,$pay_method,$total);
 
                     $bill = loadone_bill_user($idUser);
                     extract($bill);
@@ -248,12 +311,20 @@
                 }
                 include "./views/billSucces.php";
                 break;
+            case "list" :
+                if(isset($_GET['id']) && ($_GET['id'])){
+                    $listPro = loadall_products_byId($_GET['id']);
+                }
+                include "./views/list.php";
+                break;
             default :
+                $listCat = loadall_categories();
                 $listProduct = loadall_products_home();
                 include "./views/home.php";
                 break;
         }
     }else{
+        $listCat = loadall_categories();
         $listProduct = loadall_products_home();
         include "./views/home.php";
     }
